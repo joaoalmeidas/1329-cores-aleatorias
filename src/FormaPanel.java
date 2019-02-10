@@ -43,7 +43,7 @@ public class FormaPanel extends JPanel {
 				
 			}else if(forma.equals("Arco")) {
 				
-				g.fillArc(x, x, largura, altura, aleatorio.nextInt(360), aleatorio.nextInt(360));
+				g.fillArc(x, y, largura, altura, aleatorio.nextInt(360), aleatorio.nextInt(360));
 			
 			}
 			
