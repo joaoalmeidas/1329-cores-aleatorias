@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.Graphics;
 import java.security.SecureRandom;
 
@@ -7,6 +8,8 @@ public class FormaPanel extends JPanel {
 	
 	private String forma;
 	
+	private final static Color[] cores = {Color.BLACK, Color.BLUE, Color.BLUE, Color.CYAN, Color.DARK_GRAY, Color.GRAY, Color.GREEN, Color.LIGHT_GRAY,
+			Color.MAGENTA, Color.ORANGE, Color.PINK, Color.RED, Color.WHITE, Color.YELLOW};
 	private final SecureRandom aleatorio = new SecureRandom();
 	
 	public FormaPanel(String forma) {
@@ -19,6 +22,8 @@ public class FormaPanel extends JPanel {
 		
 		for(int i = 0; i < 20; i++) {
 		
+		g.setColor(cores[aleatorio.nextInt(cores.length)]);	
+			
 		int x = aleatorio.nextInt(getWidth());
 		int y = aleatorio.nextInt(getHeight());
 		int largura = aleatorio.nextInt(getWidth() - x);
@@ -26,11 +31,11 @@ public class FormaPanel extends JPanel {
 	
 			if(forma.equals("Circulo")) {
 				
-				g.drawOval(x, y, largura, altura);
+				g.fillOval(x, y, largura, altura);
 				
 			}else if(forma.equals("Retangulo")) {
 				
-				g.drawRect(x, y, largura, altura);
+				g.fillRect(x, y, largura, altura);
 				
 			}else if(forma.equals("Linha")) {
 				
@@ -38,7 +43,7 @@ public class FormaPanel extends JPanel {
 				
 			}else if(forma.equals("Arco")) {
 				
-				g.drawArc(x, x, largura, altura, aleatorio.nextInt(360), aleatorio.nextInt(360));
+				g.fillArc(x, x, largura, altura, aleatorio.nextInt(360), aleatorio.nextInt(360));
 			
 			}
 			
